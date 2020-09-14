@@ -1,17 +1,19 @@
 public class Mommifier {
 
 
+    private static final String VOWELS = "aeiou";
+    private static final String MOMMY = "mommy";
+
+
     public String mommify(String str) {
 
         StringBuilder sb = new StringBuilder();
-
-        String vowels = "aeiou";
 
         boolean isPrevVowel = false;
 
         for (char c : str.toCharArray()) {
 
-            if (vowels.indexOf(c) != -1) {
+            if (isVowel(c)) {
 
                 sb.append(c);
                 isPrevVowel = true;
@@ -19,7 +21,7 @@ public class Mommifier {
             } else {
 
                 if (isPrevVowel)
-                    sb.append("mommy");
+                    sb.append(MOMMY);
 
                 sb.append(c);
 
@@ -27,10 +29,15 @@ public class Mommifier {
             }
         }
 
-        if (vowels.indexOf(str.charAt(str.length() - 1)) != -1)
-            sb.append("mommy");
+        if (isVowel(str.charAt(str.length() - 1)))
+            sb.append(MOMMY);
 
         return sb.toString();
+    }
+
+
+    private static boolean isVowel(char c) {
+        return VOWELS.indexOf(c) != -1;
     }
 
 }

@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MommifierTest {
 
+
     @Test
     void should_insert_mommy_afterwards_given_continuous_vowels() {
 
